@@ -1,5 +1,7 @@
 #pragma once
-#include "Light.h"
+#include "..\Include\glew.h"
+#include "..\Include\glut.h"
+#include "vmath.h"
 
 class StaticHandle
 {
@@ -13,9 +15,7 @@ public:
 	static float GameSpeed;
 	static mat4 mv_matrix;
 	static mat4 proj_matrix;
-	static mat4 MapBase_matrix;
 	vec3 PlayerDirectionDamage;
-	static Light light;
 	static vec3 Get_projected_Position(vec3 Position);
 };
 

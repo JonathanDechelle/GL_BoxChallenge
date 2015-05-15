@@ -7,9 +7,8 @@
 #include "StaticHandle.h"
 #include "Player.h"
 #include "Camera.h"
-#include "Map_Creator.h"
+#include "Drawing_Manager.h"
 #include "Shader_Compiler.h"
-#include "Collision_Helper.h"
 
 
 GLuint vertex_array_object,buffer;
@@ -17,15 +16,11 @@ GLuint textures[10];
 vec2 WindowSize(800,600);
 
 
-DATA data = DATA();
 Keyboard keyboard = Keyboard();
 Camera camera = Camera();
 Model_Factory Models_factory;
-Map_Creator Map;
 Player player;
 Drawing_Manager Drawing_manager;
-
-
 
 void keyPressed (unsigned char key, int x, int y) {keyboard.keyPressed(key);}
 void keyUp (unsigned char key, int x, int y){keyboard.keyUp(key);};
@@ -36,7 +31,7 @@ void MouseMove(int x, int y)
 
 void keyUpdate()
 {
-	camera.Keyboard_Update(keyboard);
+	//camera.Keyboard_Update(keyboard);
 
 	//Light Direction
 	//if(keyboard.IsHold('u')) Light_Direction[0] += StaticHandle::GameSpeed;
@@ -87,8 +82,6 @@ void Initialize_ALL()
 	StaticHandle::proj_location = glGetUniformLocation(StaticHandle::rendering_program, "proj_matrix");
 	StaticHandle::lookAtMatrix_Location = glGetUniformLocation(StaticHandle::rendering_program, "lookAtMatrix_matrix");				//Initialize Uniform
 
-	StaticHandle::light.Initialize(StaticHandle::rendering_program);
-
 	glGenTextures(10, textures);
 	Load_Image::generate_texture("BlueCircuit.jpg",textures, Load_Image::Type_Image::BlueCircuit);
 	Load_Image::generate_texture("Or.jpg",textures, Load_Image::Type_Image::Or);
@@ -120,11 +113,9 @@ void Initialize_ALL()
 	glutPassiveMotionFunc(MouseMove);	
 
 	player = Player();
-	Map = Map_Creator();
-	Map.SetBase_Position(vec3(-10.0f,0.0f,-20.0f));
-	Map.Load("Map1.png");
 	player.Set_BasePosition(player.Start_Position);
 	Drawing_manager = Drawing_Manager(Models_factory);
+	camera.Update(player.Position);
 }
 
 void Set_Uniform()
@@ -135,22 +126,18 @@ void Set_Uniform()
 
 void render(float CurrentTime) 
 {
-	glClearColor(0,0,0, 0);
+	glClearColor(1,1,1, 0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	StaticHandle::light.Update(StaticHandle::CurrentTime);
-	
 	player.Udpate(keyboard,Models_factory);
-	Collision_Helper::Update(Map,player,Drawing_manager);
 
-	camera.Update(player.Position);
+	
 
 	keyUpdate();
 
 	Set_Uniform(); 
 
-	Map.UpdateAndDraw(Drawing_manager,Models_factory);
-
+	
 	Drawing_manager.Update(player);
 	Drawing_manager.Draw(CurrentTime,StaticHandle::GameSpeed);
 }

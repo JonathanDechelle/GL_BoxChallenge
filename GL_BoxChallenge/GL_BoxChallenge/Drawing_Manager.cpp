@@ -128,6 +128,6 @@ void Drawing_Manager::Draw(float CurrentTime,float GameSpeed)
 	this->GameSpeed = GameSpeed;
 
 	DrawPlayer();
-	DrawLifeBar(PlayerPosition,PlayerLife,PlayerMaxLife);
+	//DrawLifeBar(PlayerPosition,PlayerLife,PlayerMaxLife);
 }
 

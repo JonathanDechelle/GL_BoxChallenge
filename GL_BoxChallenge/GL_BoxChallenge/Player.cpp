@@ -42,11 +42,11 @@ void Player::Reset_DefaultAll()
 
 void Player::Set_Constants()
 {
-	Speed = 0.000005f;
+	Speed = 0.000001f;
 	Friction = 0.0000005f;
 	BaseFactor = 10000;
-	gravity = 0.000015f;
-	BaseJump = 0.65f;
+	gravity = 0.0000015f;
+	BaseJump = 0.05f;
 }
 
 Player::Player()
@@ -163,6 +163,12 @@ void Player::Set_NextBehaviour()
 	}
 	else
 	{
+		if(Position[1] < -30)
+		{
+			IsCollide = true;
+			OnTopOf = true;
+		}
+		
 		if(IsCollide)
 		{
 			Position = Last_Position;
@@ -176,7 +182,8 @@ void Player::Set_NextBehaviour()
 		}
 
 		if(OnTopOf)
-			if(keyboard.IsPressed(' ')) Jump();
+			if(keyboard.IsPressed(' ')) 
+				Jump();
 	}
 }
 
