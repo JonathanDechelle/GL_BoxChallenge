@@ -12,12 +12,11 @@ public:
 	void Update(Player player);
 	void DrawPlayer();
 	void DrawLifeBar(vec3 PlayerPosition, float PlayerLife, float PlayerMaxLife);
+	void Draw_Head(float AngleStart);
 	void DrawSaw(vec3 Position);
 	void DrawTrampoline(vec3 Position,float size);
 	void Draw_Torus(float AngleStart);
 	void Draw_AllTorus(int nb);
-	void Draw_Eye(float AngleStart,int NoEye);
-	void Draw_AllEyes(int nb);
 	void Draw(float CurrentTime,float GameSpeed);
 	void RenderCollision(vec3 Position);
 	float BaseFactor;

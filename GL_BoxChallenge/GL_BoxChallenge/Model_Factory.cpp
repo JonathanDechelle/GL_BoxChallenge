@@ -27,10 +27,6 @@ void Model_Factory::Load_Models()
 	ForeArm_Model = TabVertex(vertices,uvs);
 	objloader::LoadObj("Hand.obj",vertices,uvs,normals); 	
 	Hand_Model = TabVertex(vertices,uvs);
-	objloader::LoadObj("LifeBarContent.obj",vertices,uvs,normals); 	
-	LifeBar_Content_Model = TabVertex(vertices,uvs);
-	objloader::LoadObj("LifeBarFrame.obj",vertices,uvs,normals); 	
-	LifeBar_Frame_Model = TabVertex(vertices,uvs);
 	objloader::LoadObj("Head.obj",vertices,uvs,normals); 	
 	Head_Model = TabVertex(vertices,uvs);
 	objloader::LoadObj("Neck.obj",vertices,uvs,normals); 	
@@ -49,8 +45,7 @@ void Model_Factory::Load_Models()
 	Models[Foot] = Foot_Model;
 	Models[ForeArm] = ForeArm_Model;
  	Models[Hand] = Hand_Model;
-	Models[LifeBar_Frame] = LifeBar_Frame_Model;
-	Models[LifeBar_Content] = LifeBar_Content_Model;
+	
 	Models[Head] = Head_Model;
 	Models[Neck] = Neck_Model;
 	Models[Pelvis] = Pelvis_Model;
