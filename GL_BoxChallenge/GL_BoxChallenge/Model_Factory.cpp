@@ -17,32 +17,47 @@ void Model_Factory::Load_Models()
 	vector<vec2> uvs;
 	vector<vec3> normals;
 
-	objloader::LoadObj("Torus.obj", vertices, uvs, normals); 
-	Torus_Model = TabVertex(vertices,uvs);
-	objloader::LoadObj("Ball.obj", vertices, uvs, normals);  
-	Ball_Model = TabVertex(vertices,uvs);
-	objloader::LoadObj("Saw.obj",vertices,uvs,normals); 	
-	Saw_Model = TabVertex(vertices,uvs);
-	objloader::LoadObj("Half_Ball.obj",vertices,uvs,normals); 	
-	Half_Ball_Model = TabVertex(vertices,uvs);
-	objloader::LoadObj("Cube.obj",vertices,uvs,normals); 	
-	Cube_Model = TabVertex(vertices,uvs);
+	objloader::LoadObj("Calf.obj", vertices, uvs, normals); 
+	Calf_Model = TabVertex(vertices,uvs);
+	objloader::LoadObj("Clavicle.obj", vertices, uvs, normals);  
+	Clavicle_Model = TabVertex(vertices,uvs);
+	objloader::LoadObj("Foot.obj",vertices,uvs,normals); 	
+	Foot_Model = TabVertex(vertices,uvs);
+	objloader::LoadObj("ForeArm.obj",vertices,uvs,normals); 	
+	ForeArm_Model = TabVertex(vertices,uvs);
+	objloader::LoadObj("Hand.obj",vertices,uvs,normals); 	
+	Hand_Model = TabVertex(vertices,uvs);
 	objloader::LoadObj("LifeBarContent.obj",vertices,uvs,normals); 	
 	LifeBar_Content_Model = TabVertex(vertices,uvs);
 	objloader::LoadObj("LifeBarFrame.obj",vertices,uvs,normals); 	
 	LifeBar_Frame_Model = TabVertex(vertices,uvs);
-	objloader::LoadObj("Trampoline.obj",vertices,uvs,normals); 	
-	Trampoline_Model = TabVertex(vertices,uvs);
+	objloader::LoadObj("Head.obj",vertices,uvs,normals); 	
+	Head_Model = TabVertex(vertices,uvs);
+	objloader::LoadObj("Neck.obj",vertices,uvs,normals); 	
+	Neck_Model = TabVertex(vertices,uvs);
+	objloader::LoadObj("Pelvis.obj",vertices,uvs,normals); 	
+	Pelvis_Model = TabVertex(vertices,uvs);
+	objloader::LoadObj("Spine.obj",vertices,uvs,normals); 	
+	Spine_Model = TabVertex(vertices,uvs);
+	objloader::LoadObj("Thigh.obj",vertices,uvs,normals); 	
+	Thigh_Model = TabVertex(vertices,uvs);
+	objloader::LoadObj("UpperArm.obj",vertices,uvs,normals); 	
+	UpperArm_Model = TabVertex(vertices,uvs);
 
-	Models[Torus] = Torus_Model;
-	Models[Ball] = Ball_Model;
-	Models[Saw] = Saw_Model;
-	Models[HalfBall] = Half_Ball_Model;
- 	Models[Cube] = Cube_Model;
+	Models[Calf] = Calf_Model;
+	Models[Clavicle] = Clavicle_Model;
+	Models[Foot] = Foot_Model;
+	Models[ForeArm] = ForeArm_Model;
+ 	Models[Hand] = Hand_Model;
 	Models[LifeBar_Frame] = LifeBar_Frame_Model;
 	Models[LifeBar_Content] = LifeBar_Content_Model;
-	Models[Trampoline] = Trampoline_Model;
-	NbModels = 8;
+	Models[Head] = Head_Model;
+	Models[Neck] = Neck_Model;
+	Models[Pelvis] = Pelvis_Model;
+	Models[Spine] = Spine_Model;
+	Models[Thigh] = Thigh_Model;
+	Models[UpperArm] = UpperArm_Model;
+	NbModels = 13;
 }
 
 void Model_Factory::Draw_Models(ModelType Type, int Texture)

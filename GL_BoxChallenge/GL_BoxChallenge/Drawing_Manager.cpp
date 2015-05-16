@@ -14,8 +14,6 @@ Drawing_Manager::Drawing_Manager(Model_Factory Models_factory)
 {
 	this->Models_factory = Models_factory;
 	BaseFactor = 10000;
-	ColorEyes[0] = Green;
-	ColorEyes[1] = Red;
 }
 
 void Drawing_Manager::Draw_Torus(float AngleStart)
@@ -27,7 +25,7 @@ void Drawing_Manager::Draw_Torus(float AngleStart)
 		rotate(CurrentTime * GameSpeed/25 * (BaseFactor/100), 0.0f, 1.0f, 0.0f) * 
 		scale(0.85f,0.85f,0.85f);
 
-	Models_factory.Draw_Models(Models_factory.ModelType::Torus,Load_Image::Type_Image::BlueCircuit);
+	Models_factory.Draw_Models(Models_factory.ModelType::Head,Load_Image::Type_Image::BlueCircuit);
 }
 
 void Drawing_Manager::Draw_AllTorus(int nb)
@@ -55,7 +53,7 @@ void Drawing_Manager::Draw_Eye(float AngleStart,int NoEye)
 	if(EyeColor == 0) 	EyeTexture = Load_Image::Type_Image::GreenEye;
 	else				EyeTexture = Load_Image::Type_Image::RedEye;
 
-	Models_factory.Draw_Models(Models_factory.ModelType::HalfBall,EyeTexture);
+	Models_factory.Draw_Models(Models_factory.ModelType::Head,EyeTexture);
 }
 
 void Drawing_Manager::Draw_AllEyes(int nb)
@@ -79,22 +77,6 @@ void Drawing_Manager::DrawPlayer()
 	Draw_AllEyes(2);
 }
 
-void Drawing_Manager::DrawSaw(vec3 Position)
-{
-	StaticHandle::mv_matrix = translate(Position) * 
-		rotate(CurrentTime * GameSpeed/5 * (BaseFactor/100), 0.0f, 0.0f, 1.0f)  *
-		rotate(90.0f, 1.0f, 0.0f, 0.0f);
-
-	Models_factory.Draw_Models(Models_factory.ModelType::Saw,Load_Image::Metal);
-}
-
-void Drawing_Manager::DrawTrampoline(vec3 Position,float size)
-{
-	StaticHandle::mv_matrix = translate(Position) * scale(size,size,size);
-
-	Models_factory.Draw_Models(Models_factory.ModelType::Trampoline,Load_Image::RedCircuit);
-}
-
 void Drawing_Manager::DrawLifeBar(vec3 PlayerPosition, float PlayerLife, float PlayerMaxLife)
 {
 	StaticHandle::mv_matrix = translate(vec3(PlayerPosition[0],PlayerPosition[1],-19.0f) + vec3(0.0f,14.0f,5.0f)) * 
@@ -110,8 +92,8 @@ void Drawing_Manager::DrawLifeBar(vec3 PlayerPosition, float PlayerLife, float P
 
 void Drawing_Manager::RenderCollision(vec3 Position)
 {
-	StaticHandle::mv_matrix = translate(Position) * scale(2.0f);
-	Models_factory.Draw_Models(Models_factory.ModelType::Cube,Load_Image::Type_Image::Leaf); 
+	//StaticHandle::mv_matrix = translate(Position) * scale(2.0f);
+	//Models_factory.Draw_Models(Models_factory.ModelType::Cube,Load_Image::Type_Image::Leaf); 
 }
 
 void Drawing_Manager::Update(Player player)

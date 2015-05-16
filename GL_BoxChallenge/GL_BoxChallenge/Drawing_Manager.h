@@ -30,9 +30,5 @@ public:
 	float PlayerMaxLife;
 
 	Model_Factory Models_factory;
-	enum EyeColor
-	{
-		Green,Red
-	};
 };
 

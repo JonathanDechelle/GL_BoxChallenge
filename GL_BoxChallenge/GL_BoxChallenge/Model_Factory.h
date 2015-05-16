@@ -12,24 +12,34 @@ public:
 	~Model_Factory(void);
 	enum ModelType
 	{
-		Torus,
-		Ball,
-		Saw,
-		HalfBall,
-		Cube,
-		LifeBar_Content,
+		Calf,
+		Clavicle,
+		Foot,
+		ForeArm,
+		Hand,
+		Head,
 		LifeBar_Frame,
-		Trampoline
+		LifeBar_Content,
+		Neck,
+		Pelvis, 
+		Spine,
+		Thigh,
+		UpperArm
 	};
-	TabVertex Torus_Model;
-	TabVertex Ball_Model;
-	TabVertex Saw_Model;
-	TabVertex Half_Ball_Model;
-	TabVertex Cube_Model;
+	TabVertex Calf_Model;
+	TabVertex Clavicle_Model;
+	TabVertex Foot_Model;
+	TabVertex ForeArm_Model;
+	TabVertex Hand_Model;
 	TabVertex LifeBar_Content_Model;
 	TabVertex LifeBar_Frame_Model;
-	TabVertex Trampoline_Model;
-	TabVertex Models[8];
+	TabVertex Head_Model;
+	TabVertex Neck_Model;
+	TabVertex Pelvis_Model;
+	TabVertex Spine_Model;
+	TabVertex Thigh_Model;
+	TabVertex UpperArm_Model;
+	TabVertex Models[13];
 	int NbModels;
 
 	void Load_Models();
