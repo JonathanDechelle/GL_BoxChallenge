@@ -11,10 +11,8 @@ public:
 	Drawing_Manager(Model_Factory Models_factory);
 	void Update(Player player);
 	void DrawPlayer();
-	void DrawLifeBar(vec3 PlayerPosition, float PlayerLife, float PlayerMaxLife);
 	void Draw_Head(float AngleStart);
 	void Draw(float CurrentTime,float GameSpeed);
-	void RenderCollision(vec3 Position);
 	float BaseFactor;
 	float GameSpeed;
 	float CurrentTime;
