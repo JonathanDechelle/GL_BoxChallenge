@@ -16,43 +16,20 @@ Drawing_Manager::Drawing_Manager(Model_Factory Models_factory)
 	BaseFactor = 10000;
 }
 
-void Drawing_Manager::Draw_Torus(float AngleStart)
-{
-	StaticHandle::mv_matrix = translate(PlayerPosition[0],PlayerPosition[1],PlayerPosition[2]) *
-		rotate(AngleStart, 0.0f, 0.0f, 1.0f) *
-		rotate(PlayerRotation[0] * BaseFactor,0.0f,0.0f,1.0f) * 
-		rotate(-PlayerRotation[2] * BaseFactor,1.0f,0.0f,0.0f) *
-		rotate(CurrentTime * GameSpeed/25 * (BaseFactor/100), 0.0f, 1.0f, 0.0f) * 
-		scale(5.00f,5.00f,5.00f);
-
-	Models_factory.Draw_Models(Models_factory.ModelType::Foot,Load_Image::Type_Image::BlueCircuit);
-}
-
 void Drawing_Manager::Draw_Head(float AngleStart)
 {
-	StaticHandle::mv_matrix = translate(PlayerPosition[0],PlayerPosition[1],PlayerPosition[2]) *
+	float Scale = 5;
+	StaticHandle::mv_matrix =
+		translate(PlayerPosition[0],PlayerPosition[1] + (PlayerPosition[1] * Scale/10),PlayerPosition[2]) *
 		rotate(AngleStart, 0.0f, 1.0f, 0.0f) *
-		scale(5.00f,5.00f,5.00f);
+		scale(Scale,Scale,Scale); 
 
-	Models_factory.Draw_Models(Models_factory.ModelType::Head,Load_Image::Type_Image::Metal);
+	Models_factory.Draw_Models(Models_factory.ModelType::Head,Load_Image::Type_Image::WoodBox);
 }
-
-void Drawing_Manager::Draw_AllTorus(int nb)
-{
-	float Ecart = 45.0f;
-	float Angle;
-
-	for (int i = 0; i < nb; i++)
-	{
-		Angle = i * Ecart;
-		Draw_Torus(Angle);
-	}
-};
 
 void Drawing_Manager::DrawPlayer()
 {
 	Draw_Head(90);
-	Draw_AllTorus(4);	
 }
 
 void Drawing_Manager::DrawLifeBar(vec3 PlayerPosition, float PlayerLife, float PlayerMaxLife)
