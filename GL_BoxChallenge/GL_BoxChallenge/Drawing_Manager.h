@@ -13,6 +13,9 @@ public:
 	void DrawPlayer();
 	void Draw_Head(float AngleStart);
 	void Draw_Neck(float AngleStart);
+	void Draw_Pelvis(float AngleStart);
+	void Draw_UpperArm(float AngleStart);
+	void Draw_Clavicle(float AngleStart);
 	void Draw(float CurrentTime,float GameSpeed);
 	float BaseFactor;
 	float GameSpeed;
