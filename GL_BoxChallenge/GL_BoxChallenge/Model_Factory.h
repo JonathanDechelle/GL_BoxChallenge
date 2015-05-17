@@ -18,8 +18,6 @@ public:
 		ForeArm,
 		Hand,
 		Head,
-		LifeBar_Frame,
-		LifeBar_Content,
 		Neck,
 		Pelvis, 
 		Spine,
@@ -31,15 +29,13 @@ public:
 	TabVertex Foot_Model;
 	TabVertex ForeArm_Model;
 	TabVertex Hand_Model;
-	TabVertex LifeBar_Content_Model;
-	TabVertex LifeBar_Frame_Model;
 	TabVertex Head_Model;
 	TabVertex Neck_Model;
 	TabVertex Pelvis_Model;
 	TabVertex Spine_Model;
 	TabVertex Thigh_Model;
 	TabVertex UpperArm_Model;
-	TabVertex Models[13];
+	TabVertex Models[11];
 	int NbModels;
 
 	void Load_Models();

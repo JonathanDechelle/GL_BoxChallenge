@@ -12,6 +12,7 @@ public:
 	void Update(Player player);
 	void DrawPlayer();
 	void Draw_Head(float AngleStart);
+	void Draw_Neck(float AngleStart);
 	void Draw(float CurrentTime,float GameSpeed);
 	float BaseFactor;
 	float GameSpeed;
@@ -21,7 +22,7 @@ public:
 	vec3 PlayerRotation;
 	float PlayerLife;
 	float PlayerMaxLife;
-
+	float PlayerScale;
 	Model_Factory Models_factory;
 };
 

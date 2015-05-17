@@ -45,14 +45,13 @@ void Model_Factory::Load_Models()
 	Models[Foot] = Foot_Model;
 	Models[ForeArm] = ForeArm_Model;
  	Models[Hand] = Hand_Model;
-	
 	Models[Head] = Head_Model;
 	Models[Neck] = Neck_Model;
 	Models[Pelvis] = Pelvis_Model;
 	Models[Spine] = Spine_Model;
 	Models[Thigh] = Thigh_Model;
 	Models[UpperArm] = UpperArm_Model;
-	NbModels = 13;
+	NbModels = 11;
 }
 
 void Model_Factory::Draw_Models(ModelType Type, int Texture)
